@@ -1,0 +1,25 @@
+Introduction to eBPF:
+
+- What is eBPF.?
+
+	-	Extended Berkely Packet Filter (eBPF ) is a technology which ebnables us to extend the functionalities of the kernel without changing the kernel code or loading kernel modules, by safely and efficiently running custom inside the kernel.
+	-	Linux kernel is an important part of Linux operating system and it acts as an interface between the application processes and the hardware, and is also responsible for managing operating system resources as efficiently as possible. Basically, linux kernel is a software residing in the memory that tells OS what to do.
+	
+	-	Programs running in a unpriviledged (user space) context cannot directly access hardware resources. Linux kernel provides a syscall interface that helps user space to access hardware resources(for reading/writing files, receiving network data or any memory access etc.). User space basically use system call(syscall) interface to request kernel to operate on its behalf.
+	
+	-	Linux kernel is very complex and comprises more than 30 million lines of code. Difficult to introduce new functionalities.
+	-	eBPF has its own instruction set that is designed for an execution environment inside the Linux. No computer will be able to directly process these instructions. They have either been interpreted or converted to a native instruction set. Linux kernel is able to convert and interpret these instructions to native instructions. Most of the time, the Linux kernel converts the eBPF instructions to native instructions so that the eBPF code can run quickly within the kernel.
+
+	-	Revolutionary technology - Linux origin - safely and efficiently run programs in an execution environment inside the Linux.
+	-	eBPF allows running sandboxed programs to add additional capabilities to the operating system at runtime.
+	-	eBPF is like an architecture within Linux kernel having it's own instruction set. An eBPF program is translated into eBPF bytecode which is also called BPF assembly.
+
+	
+
+- Why it this important.?
+- What can we achieve using eBPF.? (Use cases)
+
+References:
+- https://ebpf.io/what-is-ebpf/
+- https://www.redhat.com/en/topics/linux/what-is-the-linux-kernel
+- https://dev.to/deepeshaburse/what-is-ebpf-2bkb
