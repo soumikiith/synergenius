@@ -2,22 +2,18 @@ Introduction to eBPF:
 
 - What is eBPF.?
 
-	-	Extended Berkely Packet Filter (eBPF ) is a technology which ebnables us to extend the functionalities of the kernel without changing the kernel code or loading kernel modules, by safely and efficiently running custom inside the kernel.
-	-	Linux kernel is an important part of Linux operating system and it acts as an interface between the application processes and the hardware, and is also responsible for managing operating system resources as efficiently as possible. Basically, linux kernel is a software residing in the memory that tells OS what to do.
-	
-	-	Programs running in a unpriviledged (user space) context cannot directly access hardware resources. Linux kernel provides a syscall interface that helps user space to access hardware resources(for reading/writing files, receiving network data or any memory access etc.). User space basically use system call(syscall) interface to request kernel to operate on its behalf.
-	
-	-	Linux kernel is very complex and comprises more than 30 million lines of code. Difficult to introduce new functionalities.
-	-	eBPF has its own instruction set that is designed for an execution environment inside the Linux. No computer will be able to directly process these instructions. They have either been interpreted or converted to a native instruction set. Linux kernel is able to convert and interpret these instructions to native instructions. Most of the time, the Linux kernel converts the eBPF instructions to native instructions so that the eBPF code can run quickly within the kernel.
+	-	The Linux kernel plays a crucial role in the Linux operating system, acting as a bridge between application processes and hardware. It's responsible for optimizing the management of system resources. Essentially, the Linux kernel is a software component that resides in memory and directs the operating system on how to operate.
+	-	Programs running in a unpriviledged (user space) context cannot directly access hardware resources. Linux kernel provides a syscall interface that helps user space to access hardware resources(for reading/writing files, receiving network data, etc.). User space basically use system call(syscall) interface to request kernel to operate on its behalf.
+	-	The Linux kernel is a complex component consisting of over 30 million lines of code, making it challenging to introduce new functionalities. However, eBPF (Extended Berkeley Packet Filter) technology provides a solution to this problem by enabling the expansion of the kernel's capabilities without the need to modify its code or load kernel modules. eBPF achieves this by securely and efficiently executing custom code within the kernel. This technology allows for the introduction of new functionalities into the Linux kernel by allowing running programs in the kernel, and eBPF programs can be loaded and unloaded from the kernel during runtime. 
 
-	-	Revolutionary technology - Linux origin - safely and efficiently run programs in an execution environment inside the Linux.
-	-	eBPF allows running sandboxed programs to add additional capabilities to the operating system at runtime.
-	-	eBPF is like an architecture within Linux kernel having it's own instruction set. An eBPF program is translated into eBPF bytecode which is also called BPF assembly.
-
+	-	The eBPF verifier plays a crucial role in ensuring the safety of the kernel. It conducts a static analysis of eBPF instructions that are being loaded into the system, in order to confirm that the programs are safe to be loaded into the kernel and that they can execute without any issues. By verifying the eBPF programs, the verifier ensures that they comply with the safety rules set by the kernel, and it prevents any malicious or unintended actions that could potentially cause harm to the system. Ultimately, the eBPF verifier helps to ensure the overall stability and security of the kernel.
 	
+	-	The eBPF technology features its own instruction set specifically designed for executing within the Linux environment. An eBPF program is translated into a set of eBPF instructions, also known as eBPF bytecode, represented in BPF assembly language. However, these instructions cannot be processed directly by a computer and must either be interpreted or translated into a native instruction set. The Linux kernel has the capability to interpret and convert these eBPF instructions into native instructions. In most cases, the Linux kernel converts the eBPF instructions into native instructions to ensure speedy execution of eBPF code within the kernel.
+	
+	-	eBPF programs are event driven, i.e., these programs can be attached to various system calls related to events such as opening file, receiving a packet at NIC interface, etc. Once an eBPF program is loaded onto a system call associated with a specific event, the program will run every time that event is triggered by a process. For instance, if an eBPF program is attached to a system call responsible for processing packets received at an Ethernet interface, the program will execute whenever a new packet is received.
 
-- Why it this important.?
-- What can we achieve using eBPF.? (Use cases)
+eBPF usecases:(Not including use cases)
+-	eBPF has various use cases that requires vissibility and debugging.
 
 References:
 - https://ebpf.io/what-is-ebpf/
