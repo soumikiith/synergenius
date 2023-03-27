@@ -1,6 +1,6 @@
-Introduction to eBPF:
+# Introduction to eBPF:
 
-**What is eBPF.?**
+## What is eBPF.?
 
 -	The Linux kernel plays a crucial role in the Linux operating system, acting as a bridge between application processes and hardware. It's responsible for optimizing the management of system resources. Essentially, the Linux kernel is a software component that resides in memory and directs the operating system on how to operate.
 
